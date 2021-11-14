@@ -17,6 +17,8 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 
+
+
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
@@ -396,3 +398,5 @@ Temporary Items
 # Local
 .env
 dist
+.env.dev
+.env.prod
