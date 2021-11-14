@@ -6,6 +6,7 @@ import { TestService } from './test.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Photo])],
-  providers: [TestController, TestService],
+  providers: [TestService],
+  controllers: [TestController],
 })
 export class TestModule {}

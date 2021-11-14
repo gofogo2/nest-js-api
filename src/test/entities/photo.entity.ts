@@ -8,15 +8,6 @@ export class Photo {
   @Column({ length: 500 })
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   description: string;
-
-  @Column()
-  filename: string;
-
-  @Column()
-  views: number;
-
-  @Column()
-  isPublished: boolean;
 }
