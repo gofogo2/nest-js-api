@@ -3,7 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TestModule } from './test/test.module';
 import { Photo } from './test/entities/photo.entity';
 import { ConfigModule } from '@nestjs/config';
+import { PointController } from './point/point.controller';
+import { PointService } from './point/point.service';
+import { PointModule } from './point/point.module';
 import * as Joi from 'joi';
+import { tb_point } from './point/entities/point.entity';
 
 @Module({
   imports: [
@@ -29,9 +33,10 @@ import * as Joi from 'joi';
       database: process.env.DB_NAME,
       synchronize: process.env.NODE_ENV !== 'prod',
       logging: true,
-      entities: [Photo],
+      entities: [Photo, tb_point],
     }),
     TestModule,
+    PointModule,
   ],
 })
 export class AppModule {}
