@@ -1,6 +1,6 @@
-export interface ICreatePhotoDto {
+export interface ICreateZoneDto {
+  code: string;
   name: string;
-  description?: string;
 }
 
 export interface IOutputDto {

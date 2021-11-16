@@ -1,0 +1,7 @@
+nest g co zone-schedule
+nest g s zone-schedule
+nest g mo zone-schedule
+mkdir ./src/zone-schedule/entities/
+mkdir ./src/zone-schedule/dtos/
+touch ./src/zone-schedule/entities/zone-schedule.entity.ts
+touch ./src/zone-schedule/dtos/zone-schedule.dto.interface.ts

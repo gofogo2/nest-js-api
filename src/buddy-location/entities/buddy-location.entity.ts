@@ -1,13 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class tb_point {
+export class tb_buddy_location {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  userId: number;
+  phoneCode: string;
 
   @Column()
-  point: number;
+  zoneCode: string;
 }

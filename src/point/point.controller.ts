@@ -5,26 +5,26 @@ import { PointService } from './point.service';
 
 @Controller('point')
 export class PointController {
-  constructor(private readonly testService: PointService) {}
+  constructor(private readonly service: PointService) {}
 
   @Post()
-  async create(@Body() createPhotoDto: ICreatePointDto) {
-    const returnValue = await this.testService.create(createPhotoDto);
+  async create(@Body() createDto: ICreatePointDto) {
+    const returnValue = await this.service.create(createDto);
     return returnValue;
   }
 
   @Get()
   getTest(): Promise<tb_point[]> {
-    return this.testService.get();
+    return this.service.get();
   }
 
   @Get('/:id')
   getTestOne(@Param('id') id: number): Promise<tb_point> {
-    return this.testService.getOne(id);
+    return this.service.getOne(id);
   }
 
   @Delete('/:id')
   delete(@Param('id') id: number): Promise<IOutputDto> {
-    return this.testService.delete(id);
+    return this.service.delete(id);
   }
 }

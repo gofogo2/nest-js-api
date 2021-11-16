@@ -1,6 +1,6 @@
 export interface ICreatePointDto {
-  UserId: number;
-  Point: number;
+  userId: number;
+  point: number;
 }
 
 export interface IOutputDto {

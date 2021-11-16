@@ -1,13 +1,16 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Photo {
+export class tb_beacon {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 500 })
+  @Column()
   name: string;
 
-  @Column({ nullable: true })
-  description: string;
+  @Column()
+  code: string;
+
+  @Column()
+  position: string;
 }

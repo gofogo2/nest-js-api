@@ -1,30 +1,29 @@
+import { tb_buddy_location } from './entities/buddy-location.entity';
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ICreatePhotoDto, IOutputDto } from './dtos/photo.dto.interface';
-import { Photo } from './entities/photo.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import {
+  ICreateBuddyLocationDto,
+  IOutputDto,
+} from './dtos/buddy-location.dto.interface';
 
 @Injectable()
-export class TestService {
+export class BuddyLocationService {
   constructor(
-    @InjectRepository(Photo)
-    private readonly repository: Repository<Photo>,
+    @InjectRepository(tb_buddy_location)
+    private readonly repository: Repository<tb_buddy_location>,
   ) {}
 
-  async create(createTodoDto: ICreatePhotoDto) {
-    return this.repository.save(createTodoDto);
+  async create(createDto: ICreateBuddyLocationDto) {
+    return this.repository.save(createDto);
   }
 
-  get(): Promise<Photo[]> {
+  get(): Promise<tb_buddy_location[]> {
     return this.repository.find();
   }
 
-  getOne(id: number): Promise<Photo> {
+  getOne(id: number): Promise<tb_buddy_location> {
     return this.repository.findOne({ id });
-  }
-
-  async getName(name: string): Promise<Photo> {
-    return this.repository.findOne({ name: name });
   }
 
   async delete(id: number): Promise<IOutputDto> {

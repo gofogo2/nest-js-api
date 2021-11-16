@@ -1,0 +1,7 @@
+nest g co user
+nest g s user
+nest g mo user
+mkdir ./src/user/entities/
+mkdir ./src/user/dtos/
+touch ./src/user/entities/point.entity.ts
+touch ./src/user/dtos/user.dto.interface.ts

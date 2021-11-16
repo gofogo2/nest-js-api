@@ -1,13 +1,23 @@
+import { tb_user } from './user/entities/user.entity';
+import { tb_zone } from './zone/entities/zone.entity';
+import { tb_zone_schedule } from './zone-schedule/entities/zone-schedule.entity';
+import { tb_item } from './item/entities/item.entity';
+import { tb_buddy } from './buddy/entities/buddy.entity';
+import { tb_buddy_location } from './buddy-location/entities/buddy-location.entity';
+import { tb_beacon } from './beacon/entities/beacon.entity';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TestModule } from './test/test.module';
-import { Photo } from './test/entities/photo.entity';
 import { ConfigModule } from '@nestjs/config';
-import { PointController } from './point/point.controller';
-import { PointService } from './point/point.service';
 import { PointModule } from './point/point.module';
 import * as Joi from 'joi';
 import { tb_point } from './point/entities/point.entity';
+import { UserModule } from './user/user.module';
+import { BuddyModule } from './buddy/buddy.module';
+import { ZoneScheduleModule } from './zone-schedule/zone-schedule.module';
+import { BeaconModule } from './beacon/beacon.module';
+import { ZoneModule } from './zone/zone.module';
+import { ItemModule } from './item/item.module';
+import { BuddyLocationModule } from './buddy-location/buddy-location.module';
 
 @Module({
   imports: [
@@ -33,10 +43,26 @@ import { tb_point } from './point/entities/point.entity';
       database: process.env.DB_NAME,
       synchronize: process.env.NODE_ENV !== 'prod',
       logging: true,
-      entities: [Photo, tb_point],
+      entities: [
+        tb_point,
+        tb_beacon,
+        tb_buddy_location,
+        tb_buddy,
+        tb_item,
+        tb_zone_schedule,
+        tb_zone,
+        tb_item,
+        tb_user,
+      ],
     }),
-    TestModule,
     PointModule,
+    BeaconModule,
+    BuddyModule,
+    BuddyLocationModule,
+    ItemModule,
+    UserModule,
+    ZoneModule,
+    ZoneScheduleModule,
   ],
 })
 export class AppModule {}
