@@ -1,5 +1,5 @@
 export interface ICreatePointDto {
-  userId: number;
+  userCode: string;
   point: number;
 }
 

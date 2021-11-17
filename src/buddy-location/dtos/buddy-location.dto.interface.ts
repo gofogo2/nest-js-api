@@ -1,5 +1,5 @@
 export interface ICreateBuddyLocationDto {
-  phoneCode: string;
+  buddyCode: string;
   zoneCode: string;
 }
 

@@ -1,6 +1,6 @@
 export interface ICreateItemDto {
-  code: string;
   name: string;
+  code: string;
   zoneCode: string;
 }
 

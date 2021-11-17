@@ -12,6 +12,10 @@ export class ItemService {
   ) {}
 
   async create(createDto: ICreateItemDto) {
+    console.log('code' + createDto.code);
+    console.log('name' + createDto.name);
+    console.log('zoneCode' + createDto.zoneCode);
+
     return this.repository.save(createDto);
   }
 
