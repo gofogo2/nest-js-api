@@ -8,8 +8,8 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
  */
 export function setupSwagger(app: INestApplication): void {
   const options = new DocumentBuilder()
-    .setTitle('CES2022 API Docs')
-    .setDescription('CES2022 API 정의서')
+    .setTitle('Gofogo API Docs')
+    .setDescription('Gofogo API 정의서')
     .setVersion('1.0.0')
     .build();
 

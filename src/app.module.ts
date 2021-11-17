@@ -23,8 +23,9 @@ import { BuddyLocationModule } from './buddy-location/buddy-location.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.test',
-      ignoreEnvFile: process.env.NODE_ENV === 'prod',
+      envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.prod',
+      // ignoreEnvFile: process.env.NODE_ENV === 'prod',
+      ignoreEnvFile: false,
       validationSchema: Joi.object({
         NODE_ENV: Joi.string().valid('dev', 'prod').required(),
         DB_HOST: Joi.string().required(),
