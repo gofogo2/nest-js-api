@@ -23,6 +23,17 @@ export class PointService {
     return this.repository.findOne({ id });
   }
 
+  async getScoreOne(userCode: string): Promise<number> {
+    let returnValue: number;
+    returnValue = 0;
+    const item = this.repository.find({ userCode });
+    await item.then(async (a) => a.forEach((b) => (returnValue += b.point)));
+
+    console.log(returnValue);
+
+    return returnValue;
+  }
+
   async delete(id: number): Promise<IOutputDto> {
     try {
       console.log(id);

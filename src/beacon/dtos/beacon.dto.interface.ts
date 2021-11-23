@@ -1,6 +1,8 @@
 export interface ICreateBeaconDto {
   name: string;
   code: string;
+  range: string;
+  rssi: string;
   position: string;
 }
 

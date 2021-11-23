@@ -15,6 +15,14 @@ export class tb_beacon {
   code: string;
 
   @Column()
+  @ApiProperty({ description: 'beacon rssi', default: '1' })
+  rssi: string;
+
+  @Column()
+  @ApiProperty({ description: 'beacon range', default: '1' })
+  range: string;
+
+  @Column()
   @ApiProperty({ description: 'beacon position', default: '1' })
   position: string;
 }

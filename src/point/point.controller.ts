@@ -47,6 +47,15 @@ export class PointController {
     return this.service.getOne(id);
   }
 
+  @Get('/score/:userCode')
+  @ApiOperation({
+    summary: '지정된 포인트 목록 조회',
+    description: '지정된 포인트 정보를 조회한다.',
+  })
+  getScoreOne(@Param('userCode') userCode: string): Promise<number> {
+    return this.service.getScoreOne(userCode);
+  }
+
   @Delete('/:id')
   @ApiOperation({
     summary: '지정된 포인트 삭제',
