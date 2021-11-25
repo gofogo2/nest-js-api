@@ -19,8 +19,8 @@ export class ZoneScheduleService {
     return this.repository.find();
   }
 
-  getOne(id: number): Promise<tb_zone_schedule> {
-    return this.repository.findOne({ id });
+  getOne(zoneCode: string): Promise<tb_zone_schedule[]> {
+    return this.repository.find({ zoneCode });
   }
 
   async delete(id: number): Promise<IOutputDto> {

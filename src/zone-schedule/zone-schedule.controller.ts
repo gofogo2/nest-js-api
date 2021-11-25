@@ -38,13 +38,13 @@ export class ZoneScheduleController {
     return this.service.get();
   }
 
-  @Get('/:id')
+  @Get('/:zoneCode')
   @ApiOperation({
     summary: '목록 조회',
     description: '목록 조회',
   })
-  getTestOne(@Param('id') id: number): Promise<tb_zone_schedule> {
-    return this.service.getOne(id);
+  getTestOne(@Param('zoneCode') zoneCode: string): Promise<tb_zone_schedule[]> {
+    return this.service.getOne(zoneCode);
   }
 
   @Delete('/:id')

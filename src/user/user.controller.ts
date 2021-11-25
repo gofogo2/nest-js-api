@@ -35,13 +35,13 @@ export class UserController {
     return this.service.get();
   }
 
-  @Get('/:id')
+  @Get('/:code')
   @ApiOperation({
     summary: '목록 조회',
     description: '목록 조회',
   })
-  getTestOne(@Param('id') id: number): Promise<tb_user> {
-    return this.service.getOne(id);
+  getTestOne(@Param('code') code: string): Promise<tb_user> {
+    return this.service.getOne(code);
   }
 
   @Delete('/:id')

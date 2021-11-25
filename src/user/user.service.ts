@@ -19,8 +19,8 @@ export class UserService {
     return this.repository.find();
   }
 
-  getOne(id: number): Promise<tb_user> {
-    return this.repository.findOne({ id });
+  getOne(code: string): Promise<tb_user> {
+    return this.repository.findOne({ code });
   }
 
   async delete(id: number): Promise<IOutputDto> {

@@ -1,7 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ICreatePointDto, IOutputDto } from './dtos/point.dto.interface';
+import {
+  ICreatePointDto,
+  IOutputDto,
+  IReadPointDto,
+} from './dtos/point.dto.interface';
 import { tb_point } from './entities/point.entity';
 
 @Injectable()
@@ -23,14 +27,27 @@ export class PointService {
     return this.repository.findOne({ id });
   }
 
-  async getScoreOne(userCode: string): Promise<number> {
-    let returnValue: number;
-    returnValue = 0;
-    const item = this.repository.find({ userCode });
-    await item.then(async (a) => a.forEach((b) => (returnValue += b.point)));
+  async getScoreOne(userCode: string): Promise<ICreatePointDto> {
+    const returnValue: ICreatePointDto = {
+      userCode: '0',
+      point: 0,
+      itemCode: '0',
+    };
 
+    let item: Promise<tb_point[]>;
+    if (userCode == '0') {
+      item = this.repository.find();
+    } else {
+      item = this.repository.find({ userCode });
+    }
+    await item.then(async (a) =>
+      a.forEach((b) => {
+        console.log(b.point);
+        console.log(returnValue.point);
+        returnValue.point += b.point;
+      }),
+    );
     console.log(returnValue);
-
     return returnValue;
   }
 
