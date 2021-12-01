@@ -1,11 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import {
-  ICreatePointDto,
-  IOutputDto,
-  IReadPointDto,
-} from './dtos/point.dto.interface';
+import { ICreatePointDto, IOutputDto } from './dtos/point.dto.interface';
 import { tb_point } from './entities/point.entity';
 
 @Injectable()
@@ -17,6 +13,10 @@ export class PointService {
 
   async create(createTodoDto: ICreatePointDto) {
     return this.repository.save(createTodoDto);
+  }
+
+  async creates(createsTodoDto: ICreatePointDto[]) {
+    return this.repository.save(createsTodoDto);
   }
 
   get(): Promise<tb_point[]> {

@@ -38,6 +38,16 @@ export class ZoneScheduleController {
     return this.service.get();
   }
 
+  @Get('/time')
+  @ApiOperation({
+    summary: '목록 조회',
+    description: '목록 조회',
+  })
+  getTime(): number {
+    console.log(Date.now());
+    return Date.now();
+  }
+
   @Get('/:zoneCode')
   @ApiOperation({
     summary: '목록 조회',

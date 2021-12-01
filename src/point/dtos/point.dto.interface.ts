@@ -4,12 +4,6 @@ export interface ICreatePointDto {
   itemCode: string;
 }
 
-export interface ICreateScoreDto {
-  userCode: string;
-  point: string;
-  itemCode: string;
-}
-
 export interface IReadPointDto {
   point: number;
 }

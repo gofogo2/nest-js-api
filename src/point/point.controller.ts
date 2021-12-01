@@ -5,11 +5,7 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import {
-  ICreatePointDto,
-  ICreateScoreDto,
-  IOutputDto,
-} from './dtos/point.dto.interface';
+import { ICreatePointDto, IOutputDto } from './dtos/point.dto.interface';
 import { tb_point } from './entities/point.entity';
 import { PointService } from './point.service';
 
@@ -28,7 +24,7 @@ export class PointController {
     type: tb_point,
   })
   @ApiBody({ type: tb_point })
-  async create(@Body() createDto: ICreateScoreDto) {
+  async create(@Body() createDto: tb_point) {
     const cd: ICreatePointDto = {
       point: +createDto.point,
       userCode: createDto.userCode,
@@ -37,6 +33,23 @@ export class PointController {
     createDto;
 
     const returnValue = await this.service.create(cd);
+    return returnValue;
+  }
+  @Post('/list')
+  @ApiOperation({
+    summary: '포인트리스트 등록',
+    description: '스코어를 위한 포인트리스트를 등록한다.',
+  })
+  @ApiCreatedResponse({
+    description: '스코어를 위한 포인트리스트를 등록한다.',
+    type: [tb_point],
+  })
+  @ApiBody({ type: [tb_point] })
+  async createList(@Body() createsDto: tb_point[]) {
+    // console.log('aaaaa');
+    console.log(createsDto);
+    // console.log('bbbbb');
+    const returnValue = await this.service.creates(createsDto);
     return returnValue;
   }
 

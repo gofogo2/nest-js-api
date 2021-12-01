@@ -21,7 +21,7 @@ export class tb_point {
   public point: number;
 
   @Column({ nullable: true })
-  @ApiProperty({ description: '사용자가 포인트를 쌓은 아이템', default: 1 })
+  @ApiProperty({ description: '사용자가 포인트를 쌓은 아이템', default: '1' })
   public itemCode: string;
 
   @CreateDateColumn()
