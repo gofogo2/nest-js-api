@@ -23,7 +23,10 @@ export class UserController {
   @ApiBody({ type: tb_user })
   async create(@Body() createDto: ICreateUserDto) {
     const returnValue = await this.service.create(createDto);
-    return returnValue;
+    return {
+      ok:true,
+      temp:returnValue.code,
+    };
   }
 
   @Get()

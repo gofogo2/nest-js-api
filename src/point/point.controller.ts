@@ -46,9 +46,9 @@ export class PointController {
   })
   @ApiBody({ type: [tb_point] })
   async createList(@Body() createsDto: tb_point[]) {
-    // console.log('aaaaa');
+    console.log('aaaaa');
     console.log(createsDto);
-    // console.log('bbbbb');
+    console.log('bbbbb');
     const returnValue = await this.service.creates(createsDto);
     return returnValue;
   }
