@@ -40,12 +40,11 @@ export class ZoneScheduleController {
 
   @Get('/time')
   @ApiOperation({
-    summary: '목록 조회',
-    description: '목록 조회',
+    summary: '플레이중인 스케쥴 동기화 시간을 가져온다',
+    description: '플레이중인 스케쥴 동기화 시간을 가져온다',
   })
   getTime(): number {
-    console.log(Date.now());
-    return Date.now();
+    return this.service.getTime();
   }
 
   @Get('/:zoneCode')
