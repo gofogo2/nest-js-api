@@ -21,8 +21,7 @@ export class ZoneScheduleService {
 
   getTime(): number {
     const severTime = new Date();
-    const startTime = new Date(Date.parse('Tue, 07 Dec 2021 05:00:00 GMT'));
-
+    const startTime = new Date(Date.parse('Tue, 08 Dec 2021 05:00:00 GMT'));
     while (true) {
       // const sec = dt.getSeconds() + 33;
       startTime.setSeconds(startTime.getSeconds() + 32);
