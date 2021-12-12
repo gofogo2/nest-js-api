@@ -38,14 +38,30 @@ export class ZoneScheduleController {
     return this.service.get();
   }
 
+  @Get('/utime')
+  @ApiOperation({
+    summary: '플레이중인 스케쥴 동기화 시간을 가져온다',
+    description: '플레이중인 스케쥴 동기화 시간을 가져온다',
+  })
+  updateTime(): number {
+    console.log('aaaaaa');
+    return this.service.updateTime();
+  }
+
+
   @Get('/time')
   @ApiOperation({
     summary: '플레이중인 스케쥴 동기화 시간을 가져온다',
     description: '플레이중인 스케쥴 동기화 시간을 가져온다',
   })
   getTime(): number {
-    return this.service.getTime();
+    return this.service.wow();
   }
+
+
+  // getTime(): number {
+  //   return this.service.wow();
+  // }
 
   @Get('/:zoneCode')
   @ApiOperation({

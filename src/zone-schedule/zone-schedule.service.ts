@@ -3,9 +3,11 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ICreateZoneDto, IOutputDto } from 'src/zone/dtos/zone.dto.interface';
-
+import dgram from 'dgram';
+import { Buffer } from 'buffer';
 @Injectable()
 export class ZoneScheduleService {
+  static time;
   constructor(
     @InjectRepository(tb_zone_schedule)
     private readonly repository: Repository<tb_zone_schedule>,
@@ -19,9 +21,38 @@ export class ZoneScheduleService {
     return this.repository.find();
   }
 
+  // getTime2(): number {
+  //   const severTime = new Date();
+  //   const startTime = new Date(time);
+  //   const serverTime_ticks = severTime.getTime();
+  //   const startTime_ticks = startTime.getTime();
+  //   let current_play_time = serverTime_ticks - startTime_ticks;
+  //   current_play_time = current_play_time / 1000;
+  //   current_play_time = current_play_time % 131;
+  //   console.log(`current_play_time:${current_play_time}`);
+  //   return current_play_time;
+  // }
+
+  updateTime(): number {
+    ZoneScheduleService.time = Date.now();
+    return 1;
+  }
+
+  wow = (): number => {
+    const severTime = new Date();
+    const startTime = new Date(ZoneScheduleService.time);
+    const serverTime_ticks = severTime.getTime();
+    const startTime_ticks = startTime.getTime();
+    let current_play_time = serverTime_ticks - startTime_ticks;
+    current_play_time = current_play_time / 1000;
+    current_play_time = current_play_time % 131;
+    console.log(`current_play_time:${current_play_time}`);
+    return current_play_time;
+  };
+
   getTime(): number {
     const severTime = new Date();
-    const startTime = new Date(Date.parse('Tue, 08 Dec 2021 05:00:00 GMT'));
+    const startTime = new Date(Date.parse('Fri, 10 Dec 2021 05:00:00 GMT'));
     while (true) {
       // const sec = dt.getSeconds() + 33;
       startTime.setSeconds(startTime.getSeconds() + 32);
