@@ -36,7 +36,7 @@ import { BuddyLocationModule } from './buddy-location/buddy-location.module';
       }),
     }),
     TypeOrmModule.forRoot({
-      type: 'postgres',
+      type: 'mssql',
       host: process.env.DB_HOST,
       port: +process.env.DB_PORT,
       username: process.env.DB_USERNAME,
@@ -44,6 +44,9 @@ import { BuddyLocationModule } from './buddy-location/buddy-location.module';
       database: process.env.DB_NAME,
       synchronize: process.env.NODE_ENV !== 'prod',
       logging: true,
+      options: {
+        encrypt: false,
+      },
       entities: [
         tb_point,
         tb_beacon,

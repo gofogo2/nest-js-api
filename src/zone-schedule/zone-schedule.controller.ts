@@ -48,7 +48,6 @@ export class ZoneScheduleController {
     return this.service.updateTime();
   }
 
-
   @Get('/time')
   @ApiOperation({
     summary: '플레이중인 스케쥴 동기화 시간을 가져온다',
@@ -57,7 +56,6 @@ export class ZoneScheduleController {
   getTime(): number {
     return this.service.wow();
   }
-
 
   // getTime(): number {
   //   return this.service.wow();

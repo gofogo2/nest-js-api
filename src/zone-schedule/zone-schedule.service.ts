@@ -1,10 +1,9 @@
+import { ZoneController } from './../zone/zone.controller';
 import { tb_zone_schedule } from './entities/zone-schedule.entity';
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ICreateZoneDto, IOutputDto } from 'src/zone/dtos/zone.dto.interface';
-import dgram from 'dgram';
-import { Buffer } from 'buffer';
 @Injectable()
 export class ZoneScheduleService {
   static time;
@@ -45,7 +44,7 @@ export class ZoneScheduleService {
     const startTime_ticks = startTime.getTime();
     let current_play_time = serverTime_ticks - startTime_ticks;
     current_play_time = current_play_time / 1000;
-    current_play_time = current_play_time % 131;
+    current_play_time = current_play_time % 510;
     console.log(`current_play_time:${current_play_time}`);
     return current_play_time;
   };
