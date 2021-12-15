@@ -43,8 +43,8 @@ export class ZoneScheduleController {
     summary: '플레이중인 스케쥴 동기화 시간을 가져온다',
     description: '플레이중인 스케쥴 동기화 시간을 가져온다',
   })
-  updateTime(): number {
-    console.log('aaaaaa');
+  updateTime(): Date {
+    console.log('updateTime');
     return this.service.updateTime();
   }
 
@@ -53,13 +53,18 @@ export class ZoneScheduleController {
     summary: '플레이중인 스케쥴 동기화 시간을 가져온다',
     description: '플레이중인 스케쥴 동기화 시간을 가져온다',
   })
-  getTime(): number {
-    return this.service.wow();
+  getTime(): Promise<number> {
+    return this.service.getTime();
   }
 
-  // getTime(): number {
-  //   return this.service.wow();
-  // }
+  @Get('/realtime')
+  @ApiOperation({
+    summary: '플레이중인 스케쥴 동기화 시간을 가져온다',
+    description: '플레이중인 스케쥴 동기화 시간을 가져온다',
+  })
+  getRealTime(): Promise<Date> {
+    return this.service.getRealTime();
+  }
 
   @Get('/:zoneCode')
   @ApiOperation({

@@ -24,8 +24,8 @@ export class UserController {
   async create(@Body() createDto: ICreateUserDto) {
     const returnValue = await this.service.create(createDto);
     return {
-      ok:true,
-      temp:returnValue.code,
+      ok: true,
+      temp: returnValue.code,
     };
   }
 

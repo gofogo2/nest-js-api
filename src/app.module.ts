@@ -1,3 +1,4 @@
+import { tb_zone_time } from './zone-schedule/entities/zone-time';
 import { tb_user } from './user/entities/user.entity';
 import { tb_zone } from './zone/entities/zone.entity';
 import { tb_zone_schedule } from './zone-schedule/entities/zone-schedule.entity';
@@ -57,6 +58,7 @@ import { BuddyLocationModule } from './buddy-location/buddy-location.module';
         tb_zone,
         tb_item,
         tb_user,
+        tb_zone_time,
       ],
     }),
     PointModule,
