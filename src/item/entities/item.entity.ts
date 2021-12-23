@@ -17,4 +17,12 @@ export class tb_item {
   @Column()
   @ApiProperty({ description: 'zoneCode', default: '1' })
   zoneCode: string;
+
+  @Column()
+  @ApiProperty({ description: 'cnt', default: 0, nullable: true })
+  cnt: number;
+
+  @Column()
+  @ApiProperty({ description: 'temp', default: '0', nullable: true })
+  temp: string;
 }

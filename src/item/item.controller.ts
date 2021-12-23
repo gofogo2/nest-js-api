@@ -1,13 +1,27 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Put,
+} from '@nestjs/common';
 import {
   ApiBody,
   ApiCreatedResponse,
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { ICreateItemDto, IOutputDto } from './dtos/item.dto.interface';
+import {
+  ICreateItemDto,
+  IOutputDto,
+  IUpdateItemDto,
+} from './dtos/item.dto.interface';
 import { tb_item } from './entities/item.entity';
 import { ItemService } from './item.service';
+import { bool, string } from 'joi';
 
 @Controller('item')
 @ApiTags('item API')
@@ -23,6 +37,16 @@ export class ItemController {
   @ApiBody({ type: tb_item })
   async create(@Body() createDto: ICreateItemDto) {
     const returnValue = await this.service.create(createDto);
+    return returnValue;
+  }
+
+  @Get('/update/:list')
+  @ApiOperation({
+    summary: '모든 목록 조회',
+    description: '모든 목록 조회',
+  })
+  async modify(@Param('list') list: string): Promise<boolean> {
+    const returnValue = await this.service.modify(list);
     return returnValue;
   }
 

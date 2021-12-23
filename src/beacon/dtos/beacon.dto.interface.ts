@@ -3,6 +3,7 @@ export interface ICreateBeaconDto {
   code: string;
   range: string;
   rssi: string;
+  minor: string;
   position: string;
 }
 

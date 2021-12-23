@@ -23,6 +23,10 @@ export class tb_beacon {
   range: string;
 
   @Column()
+  @ApiProperty({ description: 'beacon minor', default: '1' })
+  minor: string;
+
+  @Column()
   @ApiProperty({ description: 'beacon position', default: '1' })
   position: string;
 }
